@@ -113,19 +113,23 @@ jobs:
         key: ${{ matrix.config.name }}-ccache-${{ steps.ccache_cache_timestamp.outputs.timestamp }}
         restore-keys: |
           ${{ matrix.config.name }}-ccache-
-          
+
     - name: Set default triplette
       shell: cmake -P {0}
       run: set("$ENV{VCPKG_DEFAULT_TRIPLET}" "${{ matrix.config.triplet }}")
-    
-    - name: download and configure vcpkg
+
+    - name: Update the vcpkg submodule
       shell: cmake -P {0}
-      run: |
-        if (NOT "${{ runner.os }}" STREQUAL "Windows")
-          execute_process(COMMAND ./scripts/install_vcpkg.sh)
-        elseif ("${{ runner.os }}" STREQUAL "Windows")
-          execute_process(COMMAND .\scripts\install_vcpkg.bat all)
-        endif()
+      run: execute_process(COMMAND git submodule update --remote)
+
+    - name: Restore artifacts, or setup vcpkg (do not install any package)
+      uses: lukka/run-vcpkg@v10
+
+    - name: Run CMake consuming CMakePreset.json and vcpkg.json by mean of vcpkg.
+      uses: lukka/run-cmake@v10
+      with:
+        configurePreset: 'ninja-multi-vcpkg'
+        buildPreset: 'ninja-multi-vcpkg'
 
     - name: Configure
       shell: cmake -P {0}
@@ -314,7 +318,7 @@ jobs:
       with:
         name: ${{ matrix.config.artifact }}
         path: ./
- 
+
     - name: Upload to Release
       id: upload_to_release
       uses: softprops/action-gh-release@v1
