@@ -115,7 +115,7 @@ jobs:
         if (NOT "${{ runner.os }}" STREQUAL "Windows")
           execute_process(COMMAND ./scripts/install_vcpkg.sh)
         elseif ("${{ runner.os }}" STREQUAL "Windows")
-          execute_process(COMMAND ./scripts/install_vcpkg.bat)
+          execute_process(COMMAND .\scripts\install_vcpkg.bat)
         endif()
 
     - name: Configure
@@ -237,7 +237,7 @@ jobs:
 
 
     - name: Pack
-      # working-directory: instdir
+      working-directory: build
       run: cmake -E tar cfv ../${{ matrix.config.artifact }} --format=7zip .
 
 
