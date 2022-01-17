@@ -9,6 +9,8 @@ include("vcpkg/scripts/buildsystems/vcpkg.cmake")
 
 find_package(GTest CONFIG REQUIRED)
 
+enable_testing()
+
 include_directories(src)
 
 add_subdirectory(src)

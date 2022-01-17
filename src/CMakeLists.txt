@@ -4,3 +4,5 @@ set(SOURCES main.cpp)
 set(HEADERS formula.h)
 
 add_executable(${BINARY}_run ${SOURCES} ${HEADERS})
+
+install(TARGETS ${BINARY}_run)
