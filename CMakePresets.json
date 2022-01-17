@@ -81,6 +81,12 @@
       "description": "Build ninja-multi-vcpkg Configurations"
     },
     {
+      "name": "ninja-multi-vcpkg-ccache",
+      "configurePreset": "ninja-multi-vcpkg-ccache",
+      "displayName": "Build ninja-multi-vcpkg-ccache",
+      "description": "Build ninja-multi-vcpkg-ccache Configurations"
+    },
+    {
       "name": "ninja-toolchain",
       "configurePreset": "ninja-toolchain",
       "displayName": "Build ninja-toolchain",
