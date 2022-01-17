@@ -120,7 +120,9 @@ jobs:
 
     - name: Update the vcpkg submodule
       shell: cmake -P {0}
-      run: execute_process(COMMAND git submodule update --remote)
+      run: |
+        execute_process(COMMAND git submodule update --remote)
+        execute_process(COMMAND git submodule update --init --recursive)
 
     - name: Restore artifacts, or setup vcpkg (do not install any package)
       uses: lukka/run-vcpkg@v10
