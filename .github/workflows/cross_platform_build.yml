@@ -144,7 +144,7 @@ jobs:
       uses: lukka/run-cmake@v10
       with:
         configurePreset: 'ninja-multi-vcpkg-ccache'
-        buildPreset: 'ninja-multi-vcpkg'
+        buildPreset: 'ninja-multi-vcpkg-ccache'
 
     - name: ccache statistics
       shell: cmake -P {0}
