@@ -14,6 +14,3 @@ fi
 
 # Build vcpkg
 ${VCPKG_ROOTDIR}/bootstrap-vcpkg.sh -disableMetrics
-
-# Install required package(s)
-${VCPKG_ROOTDIR}/vcpkg install gtest
