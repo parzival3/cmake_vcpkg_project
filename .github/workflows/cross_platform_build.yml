@@ -7,6 +7,7 @@ env:
   NINJA_VERSION: 1.10.2
   BUILD_TYPE: Release
   CCACHE_VERSION: 4.4
+  VCPKG_DEFAULT_TRIPLET: ""
 
 jobs:
   build:
@@ -19,22 +20,26 @@ jobs:
         - {
             name: "Windows Latest MSVC", artifact: "Windows-MSVC.7z",
             os: windows-latest,
+            triplet: "x64-windows",
             cc: "cl", cxx: "cl",
             environment_script: "C:/Program Files (x86)/Microsoft Visual Studio/2019/Enterprise/VC/Auxiliary/Build/vcvars64.bat"
           }
         - {
             name: "Windows Latest MinGW", artifact: "Windows-MinGW.7z",
             os: windows-latest,
+            triplet: "x64-mingw-dynamic",
             cc: "gcc", cxx: "g++"
           }
         - {
             name: "Ubuntu Latest GCC", artifact: "Linux.7z",
             os: ubuntu-latest,
+            triplet: "x64-linux",
             cc: "gcc", cxx: "g++"
           }
         - {
             name: "macOS Latest Clang", artifact: "macOS.7z",
             os: macos-latest,
+            triplet: "x64-osx",
             cc: "clang", cxx: "clang++"
           }
 
@@ -108,7 +113,11 @@ jobs:
         key: ${{ matrix.config.name }}-ccache-${{ steps.ccache_cache_timestamp.outputs.timestamp }}
         restore-keys: |
           ${{ matrix.config.name }}-ccache-
-
+          
+    - name: Set default triplette
+      shell: cmake -P {0}
+      run: file(APPEND "$ENV{VCPKG_DEFAULT_TRIPLET}" "${{ matrix.config.triplet }}")
+    
     - name: download and configure vcpkg
       shell: cmake -P {0}
       run: |
