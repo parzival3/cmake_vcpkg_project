@@ -8,7 +8,7 @@ VCPKG_ROOTDIR="${ROOT}/externals/vcpkg"
 BUILD_ROOTDIR="${ROOT}/build"
 
 # Ensure vcpkg repository is available (on developer machines)
-if [[ ! -d "$VCPKG_ROOTDIR/.git" ]]; then
+if [ ! -d "$VCPKG_ROOTDIR/.git" ]; then
     git clone https://github.com/Microsoft/vcpkg.git  "${VCPKG_ROOTDIR}"
 fi
 
