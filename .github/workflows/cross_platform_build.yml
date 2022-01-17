@@ -116,7 +116,7 @@ jobs:
           
     - name: Set default triplette
       shell: cmake -P {0}
-      run: file(APPEND "$ENV{VCPKG_DEFAULT_TRIPLET}" "${{ matrix.config.triplet }}")
+      run: set("$ENV{VCPKG_DEFAULT_TRIPLET}" "${{ matrix.config.triplet }}")
     
     - name: download and configure vcpkg
       shell: cmake -P {0}
