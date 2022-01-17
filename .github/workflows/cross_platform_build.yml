@@ -113,13 +113,9 @@ jobs:
       shell: cmake -P {0}
       run: |
            if ("${{ runner.os }}" STREQUAL "Windows")
-              execute_process(
-                 COMMAND scripts/install_vcpkg.bat
-              )
+              execute_process(COMMAND scripts/install_vcpkg.bat)
            else
-              execute_process(
-                 COMMAND scripts/install_vcpkg.sh
-              )
+              execute_process(COMMAND scripts/install_vcpkg.sh)
            endif()
 
     - name: Configure
