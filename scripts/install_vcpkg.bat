@@ -15,3 +15,4 @@ if %ERRORLEVEL% neq 0 exit /b %ERRORLEVEL%
 
 :: Install required package(s)
 call "%VCPKG_ROOTDIR%\vcpkg.exe" install --triplet x64-windows gtest
+call "%VCPKG_ROOTDIR%\vcpkg.exe" install --triplet x86-windows gtest
