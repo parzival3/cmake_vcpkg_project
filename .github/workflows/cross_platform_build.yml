@@ -21,7 +21,7 @@ jobs:
             name: "Windows Latest MSVC", artifact: "Windows-MSVC.7z",
             os: windows-latest,
             triplet: "x64-windows",
-            preset: ninja-multi-vcpkg-ccache,
+            preset: ninja-vcpkg-ccache,
             cc: "cl", cxx: "cl",
             environment_script: "C:/Program Files (x86)/Microsoft Visual Studio/2019/Enterprise/VC/Auxiliary/Build/vcvars64.bat"
           }
@@ -29,21 +29,21 @@ jobs:
             name: "Windows Latest MinGW", artifact: "Windows-MinGW.7z",
             os: windows-latest,
             triplet: "x64-mingw-dynamic",
-            preset: ninja-multi-vcpkg-ccache,
+            preset: ninja-vcpkg-ccache,
             cc: "gcc", cxx: "g++"
           }
         - {
             name: "Ubuntu Latest GCC", artifact: "Linux.7z",
             os: ubuntu-latest,
             triplet: "x64-linux",
-            preset: ninja-multi-vcpkg-ccache,
+            preset: ninja-vcpkg-ccache,
             cc: "gcc", cxx: "g++"
           }
         - {
             name: "macOS Latest Clang", artifact: "macOS.7z",
             os: macos-latest,
             triplet: "x64-osx",
-            preset: ninja-multi-vcpkg-ccache,
+            preset: ninja-vcpkg-ccache,
             cc: "clang", cxx: "clang++"
           }
 

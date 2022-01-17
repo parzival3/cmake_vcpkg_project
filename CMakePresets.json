@@ -22,6 +22,19 @@
       "toolchainFile": "$env{TOOLCHAINFILE}"
     },
     {
+      "name": "ninja-vcpkg-ccache",
+      "displayName": "Ninja Configure Settings with ccache",
+      "description": "Configure with vcpkg toolchain",
+      "binaryDir": "${sourceDir}/builds/${presetName}",
+      "generator": "Ninja",
+      "cacheVariables": {
+        "CMAKE_TOOLCHAIN_FILE": {
+          "type": "FILEPATH",
+          "value": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake"
+        }
+      }
+    },
+    {
       "name": "ninja-multi-vcpkg",
       "displayName": "Ninja Multi-Config Configure Settings",
       "description": "Configure with vcpkg toolchain",
@@ -75,6 +88,12 @@
       "description": "Build with Ninja"
     },
     {
+      "name": "ninja-vcpkg-ccache",
+      "configurePreset": "ninja-vcpkg-ccache",
+      "displayName": "Build ninja-vcpkg-ccache",
+      "description": "Build ninja-vcpkg-ccache Configurations"
+    },
+    {
       "name": "ninja-multi-vcpkg",
       "configurePreset": "ninja-multi-vcpkg",
       "displayName": "Build ninja-multi-vcpkg",
@@ -107,6 +126,10 @@
     {
       "name": "ninja-multi-vcpkg",
       "configurePreset": "ninja-multi-vcpkg"
+    },
+    {
+      "name": "ninja-vcpkg-ccache",
+      "configurePreset": "ninja-vcpkg-ccache"
     },
     {
       "name": "ninja-multi-vcpkg-ccache",
