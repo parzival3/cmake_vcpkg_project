@@ -12,12 +12,3 @@ if not exist "%VCPKG_ROOTDIR%\.git" (
 :: Build vcpkg
 call "%VCPKG_ROOTDIR%\bootstrap-vcpkg.bat" -disableMetrics
 if %ERRORLEVEL% neq 0 exit /b %ERRORLEVEL%
-
-if ["%1"]==["all"] (
-    :: Install required package(s)
-    echo === Installing all the packages also for mingw
-    call "%VCPKG_ROOTDIR%\vcpkg.exe" install --triplet x64-windows gtest
-    call "%VCPKG_ROOTDIR%\vcpkg.exe" install --triplet x64-mingw-dynamic gtest
-) else (
-       call "%VCPKG_ROOTDIR%\vcpkg.exe" install --triplet x64-windows gtest
-)
