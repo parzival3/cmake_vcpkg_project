@@ -115,7 +115,7 @@ jobs:
         if (NOT "${{ runner.os }}" STREQUAL "Windows")
           execute_process(COMMAND ./scripts/install_vcpkg.sh)
         elseif ("${{ runner.os }}" STREQUAL "Windows")
-          execute_process(COMMAND .\scripts\install_vcpkg.bat)
+          execute_process(COMMAND .\scripts\install_vcpkg.bat all)
         endif()
 
     - name: Configure
