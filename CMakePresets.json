@@ -109,6 +109,10 @@
       "configurePreset": "ninja-multi-vcpkg"
     },
     {
+      "name": "ninja-multi-vcpkg-ccache",
+      "configurePreset": "ninja-multi-vcpkg-ccache"
+    },
+    {
       "name": "default-vs",
       "configurePreset": "msbuild-vcpkg"
     }
