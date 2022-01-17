@@ -112,11 +112,11 @@ jobs:
     - name: download and configure vcpkg
       shell: cmake -P {0}
       run: |
-           if ("${{ runner.os }}" STREQUAL "Windows")
-              execute_process(COMMAND scripts/install_vcpkg.bat)
-           else
-              execute_process(COMMAND scripts/install_vcpkg.sh)
-           endif()
+        if ("${{ runner.os }}" STREQUAL "Windows")
+          execute_process(COMMAND scripts/install_vcpkg.bat)
+        else
+          execute_process(COMMAND scripts/install_vcpkg.sh)
+        endif()
 
     - name: Configure
       shell: cmake -P {0}
