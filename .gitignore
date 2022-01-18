@@ -6,3 +6,6 @@
 /.workflows/.DS_Store
 /.github/.workflows/.DS_Store
 /.github/workflows/.DS_Store
+/cmake*/
+/ninja/
+/ninja.zip
