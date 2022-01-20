@@ -154,7 +154,7 @@ jobs:
       shell: cmake -P {0}
       run: |
         file(GLOB_RECURSE SOURCES LIST_DIRECTORIES true *.h *.cpp)
-        execute_process(COMMAND diff -u <(cat $SOURCES) <(clang-format $SOURCES))
+        execute_process(COMMAND clang-format $SOURCES)
 
     - name: ccache statistics
       shell: cmake -P {0}
