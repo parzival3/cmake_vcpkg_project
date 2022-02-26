@@ -27,6 +27,8 @@
       "generator": "Ninja",
       "cacheVariables": {
         "CMAKE_C_COMPILER_LAUNCHER": "ccache",
+        "VCPKG_TARGET_TRIPLET": "$env{VCPKG_DEFAULT_TRIPLET}",
+        "VCPKG_DEFAULT_HOST_TRIPLET": "$env{VCPKG_DEFAULT_TRIPLET}",
         "CMAKE_CXX_COMPILER_LAUNCHER": "ccache",
         "CMAKE_TOOLCHAIN_FILE": {
           "type": "FILEPATH",
@@ -56,6 +58,8 @@
       "cacheVariables": {
         "CMAKE_C_COMPILER_LAUNCHER": "ccache",
         "CMAKE_CXX_COMPILER_LAUNCHER": "ccache",
+        "VCPKG_TARGET_TRIPLET": "$env{VCPKG_DEFAULT_TRIPLET}",
+        "VCPKG_DEFAULT_HOST_TRIPLET": "$env{VCPKG_DEFAULT_TRIPLET}",
         "CMAKE_TOOLCHAIN_FILE": {
           "type": "FILEPATH",
           "value": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake"

@@ -9,3 +9,7 @@
 /cmake*/
 /ninja/
 /ninja.zip
+/instdir/
+/builds/
+/Testing/
+/tst/.DS_Store

@@ -1,13 +1,7 @@
-#include "formula.h"
+#include "formula.hpp"
 #include <iostream>
 
-using namespace std;
-
-int main(int argc, char *argv[]) {
-  if (math::Formula::identity(0) == 0) {
-    std::cout << "Correct result\n";
-  } else {
-    std::cout << "False";
-  }
-  return 0;
+int main([[maybe_unused]] int argc, [[maybe_unused]] char *argv[]) {
+  math::Formula formula;
+  return formula.identity(0) == 0;
 }
